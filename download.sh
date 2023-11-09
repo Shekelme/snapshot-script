@@ -28,7 +28,7 @@ cd
 echo -e "\n----- Node and stratum stopped -----\n"
 
 echo -e "----- Removing database and nodelogs -----\n"
-rm -rf "$GO_QUAI_DIR"/nodelogs ~/.quai
+rm -rf "$GO_QUAI_DIR"/nodelogs ~/.quai/*
 echo -e "----- Database and nodelogs cleared -----\n"
 
 FILE1_PATH=$(find "$START_PATH" -type f -name "quai_colosseum_backup" 2>/dev/null | head -n 1)
@@ -50,7 +50,7 @@ else
 fi
 
 echo -e "----- Downloading new snapshot -----\n"
-wget https://archive.quai.network/quai_colosseum_backup.tar.gz
+aria2c https://archive.quai.network/quai_colosseum_backup.tar.gz -x5
 echo -e "\n----- New snapshot downloaded -----\n"
 
 echo -e "----- Extracting new snapshot -----\n"
